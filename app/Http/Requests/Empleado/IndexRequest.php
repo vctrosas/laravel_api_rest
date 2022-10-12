@@ -25,7 +25,7 @@ class IndexRequest extends CustomFormRequest
     public function rules()
     {
         return [
-                //
-            ];
+            'foo' => 'required',
+        ];
     }
 }

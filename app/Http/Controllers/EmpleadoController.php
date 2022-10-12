@@ -31,7 +31,6 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,7 +41,16 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'full_name' => 'required|string',
+            'birthday' => 'required|date',
+            'job_position' => 'required|string',
+            'age' => 'required|integer|max:100',
+        ]);
+
+        Empleado::create($data);
     }
 
     /**
@@ -67,7 +75,6 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -77,9 +84,21 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //$id = (int) $request('id');
+        $id = (int) $request->get('id');
+        $empleado = Empleado::find($id);
+
+        $data = $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'birthday' => 'required|date',
+            'job_position' => 'required|string',
+            'full_name' => 'required|string',
+        ]);
+
+        $empleado->update($data);
     }
 
     /**
@@ -88,8 +107,10 @@ class EmpleadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $id = (int) $request->get('id');
+        $empleado = Empleado::find($id);
+        $empleado->delete();
     }
 }
