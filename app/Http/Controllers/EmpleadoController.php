@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Empleado\IndexRequest;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 
@@ -14,9 +13,14 @@ class EmpleadoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index(IndexRequest $request)
+    public function __construct()
     {
-        $empleados = Empleado::orderByDesc('birthday')->get();
+        $this->middleware('auth:sanctum');
+    }
+
+    public function index()
+    {
+        $empleados = Empleado::orderByDesc('birthday')->paginate(5);
         return $empleados;
     }
 
