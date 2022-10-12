@@ -15,8 +15,9 @@ class EmpleadoFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->firstname(),
-            'last_name' => $this->faker->lastname(),
+            'first_name' => ($first_name = $this->faker->firstname()),
+            'last_name' => ($last_name = $this->faker->lastname()),
+            'full_name' => $first_name . ' ' . $last_name,
             'job_position' => $this->faker->jobTitle(),
             'age' => $this->faker->unique()->numberBetween(1, 50),
             'birthday' => $this->faker->date(),

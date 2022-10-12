@@ -17,6 +17,7 @@ class CreateEmpleadosTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('full_name');
             $table->string('job_position');
             $table->integer('age');
             $table->date('birthday');

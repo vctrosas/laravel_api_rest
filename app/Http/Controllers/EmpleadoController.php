@@ -14,7 +14,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::all();
+        $empleados = Empleado::orderByDesc('birthday')->get();
         return $empleados;
     }
 
