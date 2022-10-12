@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Empleado\IndexRequest;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 
@@ -12,7 +13,8 @@ class EmpleadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(IndexRequest $request)
     {
         $empleados = Empleado::orderByDesc('birthday')->get();
         return $empleados;

@@ -8,10 +8,12 @@ Route::post('/login', 'LoginController@authenticate');
 
 ```
 Route::get('empleado', 'EmpleadoController@index');
+Output: all records
 ```
 
-## Return employe fields (Fullname, Job Position, Age) orderbyDesc birthday
+## Returns employe fields (Fullname, Job Position, Age) orderbyDesc birthday
 
 ```
 Route::get('empleado/{id}', 'EmpleadoController@show');
+Output: [{"id":2,"full_name":"Salvatore Wuckert","job_position":"Industrial-Organizational Psychologist","age":16}]
 ```
