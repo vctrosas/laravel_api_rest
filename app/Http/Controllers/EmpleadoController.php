@@ -98,7 +98,10 @@ class EmpleadoController extends Controller
             'full_name' => 'required|string',
         ]);
 
-        $empleado->update($data);
+        $status = $empleado->update($data);
+        return response()->json([
+            'status' => $status,
+        ]);
     }
 
     /**
@@ -109,8 +112,11 @@ class EmpleadoController extends Controller
      */
     public function destroy(Request $request)
     {
-        $id = (int) $request->get('id');
-        $empleado = Empleado::find($id);
-        $empleado->delete();
+        $empleado = Empleado::findOrFail($request->id);
+        $status = $empleado->delete();
+        return response()->json([
+            'status' => $status,
+            'user' => $empleado,
+        ]);
     }
 }
