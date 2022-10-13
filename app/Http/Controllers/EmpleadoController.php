@@ -20,7 +20,7 @@ class EmpleadoController extends Controller
 
     public function index()
     {
-        $empleados = Empleado::orderByDesc('birthday')->paginate(5);
+        $empleados = Empleado::orderByDesc('birthday')->get();
         return $empleados;
     }
 
