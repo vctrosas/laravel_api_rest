@@ -28,10 +28,14 @@ Route::put('empleado/store', 'EmpleadoController@store');
 
 ```
 Route::put('empleado/update', 'EmpleadoController@update');
+Example Postman
+http://laravelapi.test/api/empleado/update?id=8&first_name=Elisabethss&last_name=Runolfsson&full_name=Elisabeth Runolfsson&job_position=Structural Metal Fabricator&birthday=1994-11-27
 ```
 
 ## Delete a employe
 
 ```
 Route::delete('empleado/destroy', 'EmpleadoController@destroy');
+Example Postman
+http://laravelapi.test/api/empleado/destroy?id=8
 ```

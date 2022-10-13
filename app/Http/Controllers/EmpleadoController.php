@@ -92,16 +92,14 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request)
     {
-        //$id = (int) $request('id');
-        $id = (int) $request->get('id');
-        $empleado = Empleado::find($id);
+        $empleado = Empleado::findOrFail($request->id);
 
         $data = $request->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'birthday' => 'required|date',
-            'job_position' => 'required|string',
-            'full_name' => 'required|string',
+            'birthday' => 'string',
+            'job_position' => 'string',
+            'full_name' => 'string',
         ]);
 
         $status = $empleado->update($data);
