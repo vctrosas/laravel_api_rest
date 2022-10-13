@@ -15,7 +15,7 @@ Output: all records
 
 ```
 Route::get('empleado/{id}', 'EmpleadoController@show');
-Output: [{"id":2,"full_name":"Salvatore Wuckert","job_position":"Industrial-Organizational Psychologist","age":16}]
+
 ```
 
 ## Insert a new employe

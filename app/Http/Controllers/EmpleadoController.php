@@ -61,7 +61,13 @@ class EmpleadoController extends Controller
      */
     public function show($id)
     {
-        $empleados = Empleado::select('id', 'full_name', 'job_position', 'age')
+        $empleados = Empleado::select(
+            'id',
+            'first_name',
+            'last_name',
+            'birthday',
+            'job_position'
+        )
             ->where('id', '=', $id)
             ->get();
         return $empleados;
