@@ -2,6 +2,8 @@
 
 ```
 Route::post('/login', 'LoginController@authenticate');
+Require
+email and password
 ```
 
 ## Return all fields order by birthday desc
@@ -11,7 +13,7 @@ Route::get('empleado', 'EmpleadoController@index');
 Output: all records
 ```
 
-## Returns employe fields (Fullname, Job Position, Age) orderbyDesc birthday
+## Returns employe fields (First Name, Last Name, birthday, age) orderbyDesc birthday
 
 ```
 Route::get('empleado/{id}', 'EmpleadoController@show');
